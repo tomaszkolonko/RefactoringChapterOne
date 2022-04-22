@@ -1,7 +1,5 @@
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.List;
-import java.util.Vector;
 
 public class Customer {
     private String name;
@@ -22,14 +20,14 @@ public class Customer {
     public String statement() {
         String result = "Rental Record for " + getName() + "\n";
 
-        for(Rental rental : rentals) {
+        for (Rental rental : rentals) {
             // shows figures for this rental
-            result += "\t" + rental.getMovie().getTitle() + "\t" + String.valueOf(rental.getAmountToPay()) + "\n";
+            result += "\t" + rental.getMovie().getTitle() + "\t" + rental.getAmountToPay() + "\n";
         }
 
         // add footer lines
-        result += "Amount owed is " + String.valueOf(getTotalAmount()) + "\n";
-        result += "You earned " + String.valueOf(getFrequentRenterPoints()) + " frequent renter points";
+        result += "Amount owed is " + getTotalAmount() + "\n";
+        result += "You earned " + getFrequentRenterPoints() + " frequent renter points";
         return result;
 
 
@@ -37,7 +35,7 @@ public class Customer {
 
     private int getFrequentRenterPoints() {
         int frequenterPoints = 0;
-        for(Rental rental : rentals) {
+        for (Rental rental : rentals) {
             frequenterPoints += rental.getFrequentRenterPoints();
         }
         return frequenterPoints;
@@ -45,7 +43,7 @@ public class Customer {
 
     private double getTotalAmount() {
         double amountToPay = 0.0;
-        for(Rental rental : rentals) {
+        for (Rental rental : rentals) {
             amountToPay += rental.getAmountToPay();
         }
         return amountToPay;
