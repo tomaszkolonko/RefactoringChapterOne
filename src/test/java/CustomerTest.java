@@ -8,15 +8,16 @@ public class CustomerTest {
     private final static Movie Alibaba = new Movie("Alibaba", 2);
     private final static Movie starTrek = new Movie("Star Trek: new Generations", 1);
 
-    private final static Rental rentalA = new Rental(treeOfLife, 2);
-    private final static Rental rentalB = new Rental(Alibaba, 2);
-    private final static Rental rentalC = new Rental(starTrek, 2);
+    private final static Rental RENTAL_2_TREEOFLIFE = new Rental(treeOfLife, 2);
+    private final static Rental RENTAL_5_TREEOFLIFE = new Rental(treeOfLife, 5);
+    private final static Rental RENTAL_2_ALIBABA = new Rental(Alibaba, 2);
+    private final static Rental RENTAL_2_STARTREK = new Rental(starTrek, 2);
 
     @Test
     void testPatrickStatement() {
         Customer patrick = new Customer("Patrick");
 
-        patrick.addRental(rentalA);
+        patrick.addRental(RENTAL_2_TREEOFLIFE);
 
         String patrickStatement = "Rental Record for Patrick"
                 + "\n\tTree of Life\t2.0"
@@ -29,7 +30,7 @@ public class CustomerTest {
     void testSandraStatement() {
         Customer sandra = new Customer("Sandra");
 
-        sandra.addRental(rentalB);
+        sandra.addRental(RENTAL_2_ALIBABA);
 
         String sandraStatement = "Rental Record for Sandra"
                 + "\n\tAlibaba\t1.5"
@@ -44,7 +45,7 @@ public class CustomerTest {
     void testMaxStatement() {
         Customer max = new Customer("Max");
 
-        max.addRental(rentalC);
+        max.addRental(RENTAL_2_STARTREK);
 
         String maxStatement = "Rental Record for Max"
                 + "\n\tStar Trek: new Generations\t6.0"
@@ -56,8 +57,8 @@ public class CustomerTest {
     @Test
     void testSeveralRentals() {
         Customer sonja = new Customer("Sonja");
-        sonja.addRental(rentalA);
-        sonja.addRental(rentalB);
+        sonja.addRental(RENTAL_2_TREEOFLIFE);
+        sonja.addRental(RENTAL_2_ALIBABA);
 
         String sonjaStatement = "Rental Record for Sonja"
                 + "\n\tTree of Life\t2.0"
@@ -65,6 +66,19 @@ public class CustomerTest {
                 + "\nAmount owed is 3.5"
                 + "\nYou earned 2 frequent renter points";
         assertEquals(sonjaStatement, sonja.statement());
+    }
+
+    @Test
+    void testFor5DayRental() {
+        Customer patrick = new Customer("Patrick");
+
+        patrick.addRental(RENTAL_5_TREEOFLIFE);
+
+        String patrickStatement = "Rental Record for Patrick"
+                + "\n\tTree of Life\t6.5"
+                + "\nAmount owed is 6.5"
+                + "\nYou earned 1 frequent renter points";
+        assertEquals(patrickStatement, patrick.statement());
     }
 
 }
