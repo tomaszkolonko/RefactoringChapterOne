@@ -29,8 +29,17 @@ public class Customer {
         result += "Amount owed is " + getTotalAmount() + "\n";
         result += "You earned " + getFrequentRenterPoints() + " frequent renter points";
         return result;
+    }
 
-
+    public String htmlStatement() {
+        String result = "<h1>Rentals for <em>" + getName() + "</em></h1><p>\n";
+        for(Rental rental : rentals) {
+            result += rental.getMovie().getTitle() + ": "
+                    + rental.getAmountToPay() + "<br>\n";
+        }
+        result += "<p>You owe <em>" + getTotalAmount() + "</em><p>\n";
+        result += "On this rental you earned <em>" + getFrequentRenterPoints() + "</em> frequent renter points<p>";
+        return result;
     }
 
     private int getFrequentRenterPoints() {

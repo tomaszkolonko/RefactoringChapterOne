@@ -81,4 +81,17 @@ public class CustomerTest {
         assertEquals(patrickStatement, patrick.statement());
     }
 
+    @Test
+    void testHTMLforPatrick() {
+        Customer patrick = new Customer("Patrick");
+
+        patrick.addRental(RENTAL_2_TREEOFLIFE);
+
+        String patrickStatement = "<h1>Rentals for <em>Patrick</em></h1><p>"
+                + "\nTree of Life: 2.0<br>"
+                + "\n<p>You owe <em>2.0</em><p>"
+                + "\nOn this rental you earned <em>1</em> frequent renter points<p>";
+        assertEquals(patrickStatement, patrick.htmlStatement());
+    }
+
 }
