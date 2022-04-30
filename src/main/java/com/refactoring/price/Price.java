@@ -1,4 +1,4 @@
-package price;
+package com.refactoring.price;
 
 public abstract class Price {
     public abstract double getPrice(int daysRented);

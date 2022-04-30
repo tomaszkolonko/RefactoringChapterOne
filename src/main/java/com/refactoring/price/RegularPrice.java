@@ -1,6 +1,4 @@
-package price;
-
-import price.Price;
+package com.refactoring.price;
 
 public class RegularPrice extends Price {
 

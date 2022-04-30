@@ -1,3 +1,6 @@
+import com.refactoring.Customer;
+import com.refactoring.Movie;
+import com.refactoring.Rental;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
