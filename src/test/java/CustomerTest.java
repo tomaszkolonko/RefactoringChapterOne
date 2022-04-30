@@ -27,7 +27,7 @@ public class CustomerTest {
                 \tTree of Life\t2.0
                 Amount owed is 2.0
                 You earned 1 frequent renter points""";
-        assertEquals(patrickStatement, patrick.statement());
+        assertEquals(patrickStatement, patrick.regularStatement());
     }
 
     @Test
@@ -41,7 +41,7 @@ public class CustomerTest {
                 \tAlibaba\t1.5
                 Amount owed is 1.5
                 You earned 1 frequent renter points""";
-        assertEquals(sandraStatement, sandra.statement());
+        assertEquals(sandraStatement, sandra.regularStatement());
 
 
     }
@@ -57,7 +57,7 @@ public class CustomerTest {
                 \tStar Trek: new Generations\t6.0
                 Amount owed is 6.0
                 You earned 2 frequent renter points""";
-        assertEquals(maxStatement, max.statement());
+        assertEquals(maxStatement, max.regularStatement());
     }
 
     @Test
@@ -72,7 +72,7 @@ public class CustomerTest {
                 \tAlibaba\t1.5
                 Amount owed is 3.5
                 You earned 2 frequent renter points""";
-        assertEquals(sonjaStatement, sonja.statement());
+        assertEquals(sonjaStatement, sonja.regularStatement());
     }
 
     @Test
@@ -86,7 +86,7 @@ public class CustomerTest {
                 \tTree of Life\t6.5
                 Amount owed is 6.5
                 You earned 1 frequent renter points""";
-        assertEquals(patrickStatement, patrick.statement());
+        assertEquals(patrickStatement, patrick.regularStatement());
     }
 
     @Test
