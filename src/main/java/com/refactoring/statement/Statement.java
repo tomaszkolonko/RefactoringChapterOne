@@ -1,7 +1,8 @@
 package com.refactoring.statement;
 
+import com.refactoring.Rental;
+
 import java.util.List;
-import com.refactoring.*;
 
 public abstract class Statement {
     abstract String statement(String name, List<Rental> rentals);
