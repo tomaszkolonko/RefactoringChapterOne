@@ -1,7 +1,6 @@
 public class NewReleasePrice extends Price {
 
     private final int PRICE_PER_UNIT = 3;
-
     private final int DOUBLE_RENTER_POINTS = 2;
     private final int SINGLE_RENTER_POINTS = 1;
 
