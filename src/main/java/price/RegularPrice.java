@@ -1,3 +1,7 @@
+package price;
+
+import price.Price;
+
 public class RegularPrice extends Price {
 
     private final double PRICE_PER_UNIT = 2;
@@ -5,7 +9,7 @@ public class RegularPrice extends Price {
     private final double LATE_PENALTY = 1.5;
 
     @Override
-    double getPrice(int daysRented) {
+    public double getPrice(int daysRented) {
         double result = PRICE_PER_UNIT;
         if (daysRented > FREE_DAYS) {
             result += (daysRented - FREE_DAYS) + LATE_PENALTY;
@@ -14,7 +18,7 @@ public class RegularPrice extends Price {
     }
 
     @Override
-    int getFrequentRenterPoints(int daysRented) {
+    public int getFrequentRenterPoints(int daysRented) {
         return 1;
     }
 }

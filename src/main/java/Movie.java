@@ -1,3 +1,8 @@
+import price.ChildrensPrice;
+import price.NewReleasePrice;
+import price.Price;
+import price.RegularPrice;
+
 public class Movie {
 
     private static final int CHILDREN = 2;
