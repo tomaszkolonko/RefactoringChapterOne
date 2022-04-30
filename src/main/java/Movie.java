@@ -4,7 +4,7 @@ public class Movie {
     private static final int REGULAR = 0;
     private static final int NEW_RELEASE = 1;
 
-    private String title;
+    private final String title;
     private Price price;
 
     public Movie(String title, int priceCode) {
@@ -13,19 +13,12 @@ public class Movie {
     }
 
     public void setPriceCode(int priceCode) {
-        switch(priceCode) {
-            case REGULAR:
-                price = new RegularPrice();
-                break;
-            case CHILDREN:
-                price = new ChildrensPrice();
-                break;
-            case NEW_RELEASE:
-                price = new NewReleasePrice();
-                break;
-            default:
-                throw new IllegalArgumentException("nonexistent price code");
-        }
+        price = switch(priceCode) {
+            case REGULAR -> new RegularPrice();
+            case CHILDREN -> new ChildrensPrice();
+            case NEW_RELEASE -> new NewReleasePrice();
+            default -> throw new IllegalArgumentException("nonexistent price code");
+        };
     }
 
     String getTitle() {
