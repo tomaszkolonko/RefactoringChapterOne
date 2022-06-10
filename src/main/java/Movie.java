@@ -1,26 +1,22 @@
 public class Movie {
 
-    public static final int CHILDREN = 2;
-    public static final int REGULAR = 0;
-    public static final int NEW_RELEASE = 1;
+    private final String title;
+    private final PriceCode priceCode;
 
-    private String title;
-    private int priceCode;
-
-    public Movie(String title, int priceCode) {
+    public Movie(final String title, final PriceCode priceCode) {
         this.title = title;
         this.priceCode = priceCode;
     }
 
-    public int getPriceCode() {
+    public PriceCode getPriceCode() {
         return this.priceCode;
     }
 
-    public void setPriceCode(int arg) {
-        this.priceCode = arg;
+    public String createTitleWithAmount(final double amountToPay) {
+        return title + "\t" + amountToPay;
     }
 
-    public String getTitle() {
-        return title;
+    public FrequenterPoints frequentRenterPoints(int daysRented) {
+        return priceCode.calculateFrequenterPoints(daysRented);
     }
 }

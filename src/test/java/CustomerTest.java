@@ -4,9 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CustomerTest {
 
-    private final static Movie treeOfLife = new Movie("Tree of Life", 0);
-    private final static Movie Alibaba = new Movie("Alibaba", 2);
-    private final static Movie starTrek = new Movie("Star Trek: new Generations", 1);
+    private final static Movie treeOfLife = new Movie("Tree of Life", PriceCode.REGULAR);
+    private final static Movie Alibaba = new Movie("Alibaba", PriceCode.CHILDREN);
+    private final static Movie starTrek = new Movie("Star Trek: new Generations", PriceCode.NEW_RELEASE);
 
     private final static Rental RENTAL_2_TREEOFLIFE = new Rental(treeOfLife, 2);
     private final static Rental RENTAL_5_TREEOFLIFE = new Rental(treeOfLife, 5);

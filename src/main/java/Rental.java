@@ -1,5 +1,4 @@
 public class Rental {
-
     private Movie movie;
     private int daysRented;
 
@@ -8,27 +7,19 @@ public class Rental {
         this.daysRented = daysRented;
     }
 
-    public int getDaysRented() {
-        return this.daysRented;
-    }
-
-    public Movie getMovie() {
-        return movie;
-    }
-
     double getAmountToPay() {
         double result = 0.0;
         switch (movie.getPriceCode()) {
-            case Movie.REGULAR:
+            case REGULAR:
                 result += 2;
                 if (daysRented > 2) {
                     result += (daysRented - 2) + 1.5;
                 }
                 break;
-            case Movie.NEW_RELEASE:
+            case NEW_RELEASE:
                 result += daysRented * 3;
                 break;
-            case Movie.CHILDREN:
+            case CHILDREN:
                 result += 1.5;
                 if (daysRented > 3) {
                     result += (daysRented - 3) * 1.5;
@@ -38,12 +29,11 @@ public class Rental {
         return result;
     }
 
-    public int getFrequentRenterPoints() {
-        int frequentRenterPoints = 1;
+    public String createTitle() {
+        return  movie.createTitleWithAmount(getAmountToPay());
+    }
 
-        // add bonus for a two day new release rental
-        if ((this.movie.getPriceCode() == Movie.NEW_RELEASE) && daysRented > 1)
-            frequentRenterPoints++;
-        return frequentRenterPoints;
+    public FrequenterPoints frequentRenterPoints() {
+        return movie.frequentRenterPoints(daysRented);
     }
 }
