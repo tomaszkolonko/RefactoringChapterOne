@@ -19,4 +19,8 @@ public class Movie {
     public FrequenterPoints frequentRenterPoints(int daysRented) {
         return priceCode.calculateFrequenterPoints(daysRented);
     }
+
+    public Double calculatePrice(final Integer integer) {
+        return priceCode.calculatePrice(integer);
+    }
 }
