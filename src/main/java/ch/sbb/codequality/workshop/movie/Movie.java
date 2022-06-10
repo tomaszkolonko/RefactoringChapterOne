@@ -13,7 +13,7 @@ public class Movie {
     }
 
     public String createTitleWithAmount(final double amountToPay) {
-        return title + "\t" + amountToPay;
+        return title + " (CHF " + amountToPay + ")";
     }
 
     public FrequenterPoints frequentRenterPoints(int daysRented) {

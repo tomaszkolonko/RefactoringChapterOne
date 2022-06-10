@@ -26,7 +26,9 @@ public class CustomerTest {
             + "\n\tTree of Life\t2.0"
             + "\nAmount owed is 2.0"
             + "\nYou earned 1 frequent renter points";
-        assertEquals(patrickStatement, patrick.statement());
+        final String statement = patrick.statement();
+
+        assertEquals(patrickStatement, statement);
     }
 
     @Test

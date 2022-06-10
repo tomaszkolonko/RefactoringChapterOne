@@ -1,10 +1,14 @@
 package ch.sbb.codequality.workshop.movie;
 
+import ch.sbb.codequality.workshop.movie.category.JsonUtil;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Customer {
+
+
     private final String name;
+
     private final List<Rental> rentals = new ArrayList<>();
 
     public Customer(String name) {
@@ -16,17 +20,16 @@ public class Customer {
     }
 
     public String statement() {
-        String result = "Rental Record for " + name + "\n";
 
-        for (Rental rental : rentals) {
-            // shows figures for this rental
-            result += "\t" + rental.createTitle() + "\n";
-        }
+        final Statement statement = new Statement()
+            .withTitle(name)
+            .withRentals(rentals.stream().map(Rental::createTitle).toList())
+            .withTotalAmountInfo(Rental.calculateTotalAmount(rentals))
+            .withFrequenterPointsInfo(Rental.calculateFrequenterPoints(rentals));
 
-        // add footer lines
-        result += "Amount owed is " + Rental.calculateTotalAmount(rentals) + "\n";
-        result += "You earned %d frequent renter points".formatted(Rental.calculateFrequenterPoints(rentals));
-        return result;
+        return JsonUtil.writeAsJson(statement);
     }
+
+
 
 }

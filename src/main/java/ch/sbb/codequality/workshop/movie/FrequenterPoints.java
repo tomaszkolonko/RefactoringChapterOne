@@ -1,7 +1,6 @@
 package ch.sbb.codequality.workshop.movie;
 
 import java.util.Collection;
-import java.util.stream.Stream;
 
 public class FrequenterPoints {
 
@@ -12,7 +11,7 @@ public class FrequenterPoints {
     public FrequenterPoints(final int points) {
         this.points = points;
     }
-    
+
     public static int total(Collection<FrequenterPoints> frequenterPoints) {
         return frequenterPoints.stream().mapToInt(frequenterPoint -> frequenterPoint.points).sum();
     }
