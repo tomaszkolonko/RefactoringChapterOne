@@ -1,12 +1,15 @@
-import org.junit.jupiter.api.Test;
+package ch.sbb.codequality.workshop.movie;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import ch.sbb.codequality.workshop.movie.category.MovieCategory;
+import org.junit.jupiter.api.Test;
+
 public class CustomerTest {
 
-    private final static Movie treeOfLife = new Movie("Tree of Life", PriceCode.REGULAR);
-    private final static Movie Alibaba = new Movie("Alibaba", PriceCode.CHILDREN);
-    private final static Movie starTrek = new Movie("Star Trek: new Generations", PriceCode.NEW_RELEASE);
+    private final static Movie treeOfLife = new Movie("Tree of Life", MovieCategory.REGULAR);
+    private final static Movie Alibaba = new Movie("Alibaba", MovieCategory.CHILDREN);
+    private final static Movie starTrek = new Movie("Star Trek: new Generations", MovieCategory.NEW_RELEASE);
 
     private final static Rental RENTAL_2_TREEOFLIFE = new Rental(treeOfLife, 2);
     private final static Rental RENTAL_5_TREEOFLIFE = new Rental(treeOfLife, 5);
@@ -20,9 +23,9 @@ public class CustomerTest {
         patrick.addRental(RENTAL_2_TREEOFLIFE);
 
         String patrickStatement = "Rental Record for Patrick"
-                + "\n\tTree of Life\t2.0"
-                + "\nAmount owed is 2.0"
-                + "\nYou earned 1 frequent renter points";
+            + "\n\tTree of Life\t2.0"
+            + "\nAmount owed is 2.0"
+            + "\nYou earned 1 frequent renter points";
         assertEquals(patrickStatement, patrick.statement());
     }
 
@@ -33,11 +36,10 @@ public class CustomerTest {
         sandra.addRental(RENTAL_2_ALIBABA);
 
         String sandraStatement = "Rental Record for Sandra"
-                + "\n\tAlibaba\t1.5"
-                + "\nAmount owed is 1.5"
-                + "\nYou earned 1 frequent renter points";
+            + "\n\tAlibaba\t1.5"
+            + "\nAmount owed is 1.5"
+            + "\nYou earned 1 frequent renter points";
         assertEquals(sandraStatement, sandra.statement());
-
 
     }
 
@@ -48,9 +50,9 @@ public class CustomerTest {
         max.addRental(RENTAL_2_STARTREK);
 
         String maxStatement = "Rental Record for Max"
-                + "\n\tStar Trek: new Generations\t6.0"
-                + "\nAmount owed is 6.0"
-                + "\nYou earned 2 frequent renter points";
+            + "\n\tStar Trek: new Generations\t6.0"
+            + "\nAmount owed is 6.0"
+            + "\nYou earned 2 frequent renter points";
         assertEquals(maxStatement, max.statement());
     }
 
@@ -61,10 +63,10 @@ public class CustomerTest {
         sonja.addRental(RENTAL_2_ALIBABA);
 
         String sonjaStatement = "Rental Record for Sonja"
-                + "\n\tTree of Life\t2.0"
-                + "\n\tAlibaba\t1.5"
-                + "\nAmount owed is 3.5"
-                + "\nYou earned 2 frequent renter points";
+            + "\n\tTree of Life\t2.0"
+            + "\n\tAlibaba\t1.5"
+            + "\nAmount owed is 3.5"
+            + "\nYou earned 2 frequent renter points";
         assertEquals(sonjaStatement, sonja.statement());
     }
 
@@ -75,9 +77,9 @@ public class CustomerTest {
         patrick.addRental(RENTAL_5_TREEOFLIFE);
 
         String patrickStatement = "Rental Record for Patrick"
-                + "\n\tTree of Life\t6.5"
-                + "\nAmount owed is 6.5"
-                + "\nYou earned 1 frequent renter points";
+            + "\n\tTree of Life\t6.5"
+            + "\nAmount owed is 6.5"
+            + "\nYou earned 1 frequent renter points";
         assertEquals(patrickStatement, patrick.statement());
     }
 
