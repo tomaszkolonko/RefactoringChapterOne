@@ -21,15 +21,13 @@ public class Customer {
 
     public String statement() {
 
-        final Statement statement = new Statement()
-            .withTitle(name)
-            .withRentals(rentals.stream().map(Rental::createTitle).toList())
-            .withTotalAmountInfo(Rental.calculateTotalAmount(rentals))
-            .withFrequenterPointsInfo(Rental.calculateFrequenterPoints(rentals));
+        final Statement statement = new Statement(
+            name,
+            rentals.stream().map(Rental::createTitle).toList(),
+            Rental.calculateFrequenterPoints(rentals),
+            Rental.calculateTotalAmount(rentals)
+        );
 
         return JsonUtil.writeAsJson(statement);
     }
-
-
-
 }
