@@ -2,7 +2,7 @@ package ch.sbb.codequality.workshop.movie.category;
 
 import ch.sbb.codequality.workshop.movie.FrequenterPoints;
 
-public class NewRelease implements MovieCategory {
+public class NewReleaseCategory implements MovieCategory {
 
     @Override
     public FrequenterPoints calculateFrequenterPoints(final int rentedDays) {

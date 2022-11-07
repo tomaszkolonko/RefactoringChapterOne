@@ -4,11 +4,11 @@ import ch.sbb.codequality.workshop.movie.FrequenterPoints;
 
 public interface MovieCategory {
 
-    MovieCategory REGULAR = new Regular();
+    MovieCategory REGULAR = new RegularCategory();
 
-    MovieCategory NEW_RELEASE = new NewRelease();
+    MovieCategory NEW_RELEASE = new NewReleaseCategory();
 
-    MovieCategory CHILDREN = new Children();
+    MovieCategory CHILDREN = new ChildrenCategory();
 
     FrequenterPoints calculateFrequenterPoints(final int daysRented);
 

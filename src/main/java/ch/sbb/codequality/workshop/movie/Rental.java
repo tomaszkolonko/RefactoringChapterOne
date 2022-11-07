@@ -23,10 +23,6 @@ public class Rental {
         return FrequenterPoints.total(allFrequenterPoints);
     }
 
-    public String createTitle() {
-        return movie.createTitleWithAmount(movie.calculatePrice(daysRented));
-    }
-
     private FrequenterPoints frequentRenterPoints() {
         return movie.frequentRenterPoints(daysRented);
     }

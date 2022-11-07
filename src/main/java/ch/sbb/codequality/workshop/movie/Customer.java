@@ -1,11 +1,9 @@
 package ch.sbb.codequality.workshop.movie;
 
-import ch.sbb.codequality.workshop.movie.category.JsonUtil;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Customer {
-
 
     private final String name;
 
@@ -19,15 +17,13 @@ public class Customer {
         rentals.add(rental);
     }
 
-    public String statement() {
-
-        final Statement statement = new Statement(
-            name,
-            rentals.stream().map(Rental::createTitle).toList(),
+    public RentalStatus rentalStatus() {
+        String statementHeader = "Rental record for " + name;
+        return new RentalStatus(
+            statementHeader,
+            rentals,
             Rental.calculateFrequenterPoints(rentals),
             Rental.calculateTotalAmount(rentals)
         );
-
-        return JsonUtil.writeAsJson(statement);
     }
 }

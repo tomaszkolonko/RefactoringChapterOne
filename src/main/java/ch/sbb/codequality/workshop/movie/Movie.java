@@ -12,10 +12,6 @@ public class Movie {
         this.movieCategory = movieCategory;
     }
 
-    public String createTitleWithAmount(final double amountToPay) {
-        return title + " (CHF " + amountToPay + ")";
-    }
-
     public FrequenterPoints frequentRenterPoints(int daysRented) {
         return movieCategory.calculateFrequenterPoints(daysRented);
     }
